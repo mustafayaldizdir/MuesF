@@ -12,37 +12,33 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Database Adı
+            <th>
+                Database Adı
             </th>
-            <th>Açıklama
+            <th>
+                Açıklama
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-                <ul>
-                    @foreach (var tables in item.AppDatabaseTables())
-                    {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
 
-                        <li>@tables.Name</li>
-
-                    }
-                   </ul>
-</td>foreach
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "UpdateDatabase", new { id=item.Id }) | <a href="/Home/DeleteDatabase" onclick="return confirm('Silinecek Emin Misiniz?')">Sil</a>
-            </td>
-        </tr>
-}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UpdateDatabase", new { id = item.Id }) | <a href="/Home/DeleteDatabase" onclick="return confirm('Silinecek Emin Misiniz?')">Sil</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
