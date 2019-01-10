@@ -1,0 +1,42 @@
+﻿@model AppDatabasesGuide.Models.AppDatabase
+
+@{
+    ViewData["Title"] = "UpdateDatabase";
+}
+
+<h2>UpdateDatabase</h2>
+
+<h4>AppDatabase</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateDatabase">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span>Database Adı</span>
+                <input asp-for="Name" class="form-control" value="@Model.Name"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span>Açıklama</span>
+                <input asp-for="Description" class="form-control" value="@Model.Description"/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Databases">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
