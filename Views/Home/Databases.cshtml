@@ -24,7 +24,14 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
- 
+                <ul>
+                    @foreach (var tables in item.AppDatabaseTables())
+                    {
+
+                        <li>@tables.Name</li>
+
+                    }
+                   </ul>
 </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
